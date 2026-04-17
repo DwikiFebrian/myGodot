@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://bdvnbstuh8242"]
+
+[ext_resource type="Script" uid="uid://dvcng4ngikwa3" path="res://Scene/PhasePresentation.gd" id="1_30q5g"]
+[ext_resource type="FontFile" uid="uid://bk8oy3iouxvmr" path="res://grafik/PressStart2P-Regular.ttf" id="2_rsgif"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30q5g"]
+bg_color = Color(0.19793722, 0.19793725, 0.19793713, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpddo"]
+bg_color = Color(0.18039216, 0.3529412, 0.27058825, 1)
+shadow_color = Color(0.12156863, 0.22745098, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdp2b"]
+bg_color = Color(0.16470589, 0.24705882, 0.37254903, 1)
+shadow_color = Color(0.101960786, 0.15294118, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_niq77"]
+bg_color = Color(0.3529412, 0.18039216, 0.18039216, 1)
+shadow_color = Color(0.22745098, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsgif"]
+bg_color = Color(0.18039216, 0.3529412, 0.27058825, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.30980393, 0.5411765, 0.41960785, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsecl"]
+bg_color = Color(0.12156863, 0.22745098, 0.18039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u85sj"]
+bg_color = Color(0.24705882, 0.47843137, 0.37254903, 1)
+
+[node name="Panel" type="Panel" unique_id=900900340]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -957.0
+offset_top = -554.0
+offset_right = 951.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_30q5g")
+script = ExtResource("1_30q5g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=199654911]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -715.5
+offset_top = -281.0
+offset_right = 715.5
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=169212518]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=528912696]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 32
+text = "CHOOSE YOUR NEXT PHASE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1639988165]
+layout_mode = 2
+
+[node name="PhaseBox1" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1765769729]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_bpddo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1" unique_id=1052995624]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1/VBoxContainer" unique_id=1479098052]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1/VBoxContainer" unique_id=109280425]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1/VBoxContainer" unique_id=1411422959]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PhaseBox2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=731734971]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_vdp2b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2" unique_id=2017300217]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2/VBoxContainer" unique_id=117041392]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2/VBoxContainer" unique_id=2114889825]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2/VBoxContainer" unique_id=52454703]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PhaseBox3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2102232608]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_niq77")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox3" unique_id=929626751]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox3/VBoxContainer" unique_id=127481319]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92941177, 0.92156863, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox3/VBoxContainer" unique_id=1622028361]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92941177, 0.92156863, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox3/VBoxContainer" unique_id=257914554]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9764706, 0.90588236, 0.5176471, 1)
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1561442866]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1365668775]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rsgif")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fsecl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u85sj")
+text = "BEGIN"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

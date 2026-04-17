@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c4lx5dwlch7ce"]
+
+[ext_resource type="Script" uid="uid://b6htm2b7mlgnp" path="res://Scene/RewardUI.gd" id="1_gwubk"]
+[ext_resource type="FontFile" uid="uid://bk8oy3iouxvmr" path="res://grafik/PressStart2P-Regular.ttf" id="2_kn52c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwubk"]
+bg_color = Color(0.16470589, 0.16470589, 0.22745098, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2141481823]
+script = ExtResource("1_gwubk")
+
+[node name="Panel" type="Panel" parent="." unique_id=931573084]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gwubk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1684978458]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_top = 280.0
+offset_right = 230.0
+offset_bottom = 319.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_kn52c")
+theme_override_font_sizes/font_size = 24
+text = "Choose Your Rewards"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1778107913]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 160
+alignment = 1

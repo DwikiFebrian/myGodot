@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bpqo22bpif0ad"]
+
+[ext_resource type="Script" uid="uid://dg58u41x24rg2" path="res://Scene/Main.gd" id="1_h3nmf"]
+[ext_resource type="Script" uid="uid://ogdp4sy7r1h7" path="res://Scripts/CardManager.gd" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://bdvnbstuh8242" path="res://Scene/PhasePresentationUI.tscn" id="2_sc4dx"]
+[ext_resource type="PackedScene" uid="uid://c2e865awdrju7" path="res://Scene/EndGame.tscn" id="3_i0sg4"]
+[ext_resource type="Texture2D" uid="uid://cdfbwvb3mqojn" path="res://grafik/board2.png" id="3_sc4dx"]
+[ext_resource type="Script" uid="uid://bd81ik0ccdxb8" path="res://Scripts/PlayerHand.gd" id="4_cm0pq"]
+[ext_resource type="Script" uid="uid://cg0yd8hodhy3l" path="res://Scripts/CardPlacement.gd" id="4_fos0i"]
+[ext_resource type="PackedScene" uid="uid://bonmumqpy6l88" path="res://Scene/Deck.tscn" id="4_togfq"]
+[ext_resource type="Script" uid="uid://b5x5shmyvktts" path="res://Scripts/Deck.gd" id="5_aan6j"]
+[ext_resource type="Script" uid="uid://dlji2lbc4idkx" path="res://Scripts/InputManager.gd" id="6_aan6j"]
+[ext_resource type="PackedScene" uid="uid://onk5goosgqcc" path="res://Scene/CardSlot.tscn" id="8_hueuk"]
+[ext_resource type="FontFile" uid="uid://bk8oy3iouxvmr" path="res://grafik/PressStart2P-Regular.ttf" id="9_6a8me"]
+[ext_resource type="Script" uid="uid://dd8v2maydurwl" path="res://Scripts/OrderManager.gd" id="10_yg4ot"]
+[ext_resource type="PackedScene" uid="uid://c4lx5dwlch7ce" path="res://Scene/RewardUI.tscn" id="12_4qtod"]
+[ext_resource type="PackedScene" uid="uid://c32077jt1wejf" path="res://Scene/RewardItem.tscn" id="12_i0sg4"]
+[ext_resource type="Theme" uid="uid://bdok161ykb255" path="res://craft.tres" id="13_gclda"]
+
+[node name="Main" type="Node2D" unique_id=994226464]
+script = ExtResource("1_h3nmf")
+
+[node name="CanvasLayer2" parent="." unique_id=1800509081 instance=ExtResource("3_i0sg4")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799141781]
+position = Vector2(959, 539.5)
+scale = Vector2(6.0000005, 5.9833336)
+texture = ExtResource("3_sc4dx")
+
+[node name="RewardItem" parent="." unique_id=428650801 instance=ExtResource("12_i0sg4")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=219318740]
+visible = false
+offset_right = 1955.0
+offset_bottom = 1116.0
+color = Color(0.11764706, 0.11764706, 0.16470589, 1)
+
+[node name="CanvasLayer" parent="." unique_id=2141481823 instance=ExtResource("12_4qtod")]
+
+[node name="CardSlot" parent="." unique_id=1685086273 instance=ExtResource("8_hueuk")]
+position = Vector2(970, 491)
+
+[node name="CardManager" type="Node2D" parent="." unique_id=1726582927]
+position = Vector2(2, 2)
+script = ExtResource("1_uu6xs")
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=815780333]
+script = ExtResource("4_cm0pq")
+
+[node name="CardPlacement" type="Node2D" parent="." unique_id=1442595884]
+script = ExtResource("4_fos0i")
+
+[node name="Deck" parent="." unique_id=882537184 instance=ExtResource("4_togfq")]
+scale = Vector2(2.4, 2.4)
+script = ExtResource("5_aan6j")
+
+[node name="InputManager" type="Node2D" parent="." unique_id=1718517236]
+script = ExtResource("6_aan6j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=196672606]
+offset_top = 680.0
+offset_right = 1919.0
+offset_bottom = 774.0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="CraftButton" type="Button" parent="HBoxContainer" unique_id=85270237]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+theme_override_font_sizes/font_size = 16
+text = "Craft"
+icon_alignment = 1
+
+[node name="SubmitButton" type="Button" parent="HBoxContainer" unique_id=1022561342]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("13_gclda")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+theme_override_font_sizes/font_size = 16
+text = "Submit"
+icon_alignment = 1
+
+[node name="ScorePreview" type="Label" parent="." unique_id=952184912]
+offset_left = 756.0
+offset_top = 137.0
+offset_right = 1178.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+theme_override_font_sizes/font_size = 32
+
+[node name="TotalScore" type="Label" parent="." unique_id=1716543009]
+offset_left = 59.0
+offset_top = 190.0
+offset_right = 219.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+theme_override_font_sizes/font_size = 32
+
+[node name="OrderManager" type="Node" parent="." unique_id=1503627847]
+script = ExtResource("10_yg4ot")
+
+[node name="SubmitCount" type="Label" parent="." unique_id=376955726]
+offset_left = 72.0
+offset_top = 820.0
+offset_right = 222.0
+offset_bottom = 892.0
+theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+
+[node name="PhaseLabel" type="Label" parent="." unique_id=1911745941]
+custom_minimum_size = Vector2(152, 72)
+offset_left = 81.0
+offset_top = 61.0
+offset_right = 608.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+
+[node name="CraftCount" type="Label" parent="." unique_id=1359027965]
+offset_left = 72.0
+offset_top = 881.0
+offset_right = 280.0
+offset_bottom = 948.0
+theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
+theme_override_fonts/font = ExtResource("9_6a8me")
+
+[node name="ActiveVariantContainer" type="GridContainer" parent="." unique_id=32943202]
+custom_minimum_size = Vector2(180, 640)
+layout_direction = 2
+offset_left = 1717.0
+offset_top = 313.0
+offset_right = 1909.0
+offset_bottom = 953.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="Panel" parent="." unique_id=900900340 instance=ExtResource("2_sc4dx")]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+
+[connection signal="pressed" from="HBoxContainer/CraftButton" to="." method="_on_craft_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
