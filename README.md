@@ -13,3 +13,7 @@ Godot version: 4.x
 ## TODO
 - Add sound
 - Fix bug collision
+- Boss
+- Relic
+- UI
+- Balancing
