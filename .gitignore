@@ -3,3 +3,9 @@
 
 # Ada Library Information
 *.ali
+
+.import/
+.godot/
+.export/
+.export_presets.cfg
+*.translation
