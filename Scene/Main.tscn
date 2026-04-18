@@ -15,17 +15,24 @@
 [ext_resource type="Script" uid="uid://dd8v2maydurwl" path="res://Scripts/OrderManager.gd" id="10_yg4ot"]
 [ext_resource type="PackedScene" uid="uid://c4lx5dwlch7ce" path="res://Scene/RewardUI.tscn" id="12_4qtod"]
 [ext_resource type="PackedScene" uid="uid://c32077jt1wejf" path="res://Scene/RewardItem.tscn" id="12_i0sg4"]
-[ext_resource type="Theme" uid="uid://bdok161ykb255" path="res://craft.tres" id="13_gclda"]
+[ext_resource type="PackedScene" uid="uid://dx7qt4xy4p4tr" path="res://Scene/DeckViewer.tscn" id="16_gclda"]
+[ext_resource type="PackedScene" uid="uid://bg37elq5xxxfq" path="res://Scene/CardUI.tscn" id="17_kp1vv"]
 
 [node name="Main" type="Node2D" unique_id=994226464]
 script = ExtResource("1_h3nmf")
 
 [node name="CanvasLayer2" parent="." unique_id=1800509081 instance=ExtResource("3_i0sg4")]
 
+[node name="CardUI" parent="." unique_id=2019262227 instance=ExtResource("17_kp1vv")]
+offset_right = 120.0
+offset_bottom = 160.0
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799141781]
 position = Vector2(959, 539.5)
 scale = Vector2(6.0000005, 5.9833336)
 texture = ExtResource("3_sc4dx")
+
+[node name="CanvasLayer3" parent="." unique_id=784327350 instance=ExtResource("16_gclda")]
 
 [node name="RewardItem" parent="." unique_id=428650801 instance=ExtResource("12_i0sg4")]
 
@@ -76,7 +83,6 @@ icon_alignment = 1
 [node name="SubmitButton" type="Button" parent="HBoxContainer" unique_id=1022561342]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme = ExtResource("13_gclda")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9_6a8me")
 theme_override_font_sizes/font_size = 16

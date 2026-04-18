@@ -3,6 +3,8 @@ extends Node2D
 const DECK_Y_POSITION = 1200
 const CARD_SCENE = preload("res://Scene/Card.tscn")
 
+@onready var deck_viewer = $"../CanvasLayer3/DeckViewer"
+
 # inisiasi array
 var player_num_deck = []
 var player_operator_deck = []
@@ -11,6 +13,7 @@ var operator_discard = []
 
 # signal dipakai biar visual bisa nyesuain (ngehindarin race condition)
 signal deck_ready
+signal deck_changed
 
 func _process(delta: float) -> void:
 	pass
@@ -55,6 +58,7 @@ func draw_number():
 		return null
 	
 	var val = player_num_deck.pop_front()
+	deck_changed.emit()
 	return val
 
 # fungsi draw operator
@@ -66,6 +70,7 @@ func draw_operator():
 		return null
 	
 	return player_operator_deck.pop_front()
+	deck_changed.emit()
 
 # fungsi reshuffle angka dan operator
 func reshuffle_number_deck():
@@ -91,4 +96,10 @@ func reset_deck_for_new_phase():
 	operator_discard.clear()
 	
 	create_decks() 
+	deck_changed.emit()
 	print("Deck di-reset penuh untuk Phase baru!")
+
+# buat nampilin deck, dipanggil dari deckviewer
+func show_remaining_cards():
+	if deck_viewer:
+		deck_viewer.open_deck_viewer()

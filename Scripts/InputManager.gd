@@ -33,4 +33,4 @@ func raycast_at_cursor():
 	if result.size() > 0:
 		var result_collision_mask = result[0].collider.collision_mask
 		if result_collision_mask == COLLISION_MASK_DECK:
-			print("ini deck")
+			deck_reference.show_remaining_cards()

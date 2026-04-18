@@ -24,13 +24,12 @@ func _ready() -> void:
 
 # fungsi dijalankan selama run (drag kartu)
 func _process(delta: float) -> void:
-	# 1. CEK KUNCI: Kalau interaksi dimatikan, jangan lakukan apapun!
 	if not interaction_enabled:
 		# Bersihkan efek hover kalau kebetulan ada yang nyangkut
 		if hovered_card != null and is_instance_valid(hovered_card):
 			highlight_card(hovered_card, false)
 			hovered_card = null
-		return # Stop jalankan kode di bawahnya
+		return
 
 	if card_being_dragged:
 		var mouse_position = get_global_mouse_position()
