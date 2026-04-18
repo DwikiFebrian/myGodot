@@ -5,17 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://l22d824tj41u" path="res://grafik/base.png" id="2_y4vtu"]
 
 [node name="CardUI" type="Control" unique_id=2019262227]
-custom_minimum_size = Vector2(210, 280)
+custom_minimum_size = Vector2(180, 240)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -140.0
-offset_right = 105.0
-offset_bottom = 140.0
+anchor_left = 0.508
+anchor_top = 0.51900005
+anchor_right = 0.508
+anchor_bottom = 0.51900005
+offset_left = -105.36005
+offset_top = -140.52008
+offset_right = 74.63995
+offset_bottom = 99.47992
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3h2bm")
@@ -29,8 +28,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=428862512]
-position = Vector2(105.499985, 140)
-scale = Vector2(11.781251, 11.625)
+position = Vector2(89.5, 120)
+scale = Vector2(9.968751, 10)
 texture = ExtResource("2_y4vtu")
 
 [node name="Label" type="Label" parent="Panel" unique_id=988254013]
@@ -41,7 +40,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.69803923, 0, 0.09019608, 1)
+theme_override_colors/font_shadow_color = Color(0.61960787, 0, 0.08235294, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_c4gtt")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
