@@ -4,6 +4,7 @@ Godot version: 4.x
 
 ## Progress
 - Core mechanic done
+- Reward Systems
 - UI WIP
 
 ## How to run
@@ -12,8 +13,9 @@ Godot version: 4.x
 
 ## TODO
 - Add sound
-- Fix bug collision
 - Boss
-- Relic
+- Add more variants
+- Add mode scroll
 - UI
 - Balancing
+- Money and Shop System
