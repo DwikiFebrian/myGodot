@@ -8,7 +8,7 @@
 size = Vector2(126, 190)
 
 [node name="Card" type="Node2D" unique_id=1729379231]
-position = Vector2(1800, 150)
+position = Vector2(1820, 980)
 script = ExtResource("1_hael8")
 
 [node name="CardImage" type="Sprite2D" parent="." unique_id=2072436751]

@@ -36,3 +36,12 @@ func set_value(v):
 # update visual kartu pakai value
 func update_visual():
 	$Area2D/Label.text = str(value)
+
+# fungsi buat ngubah kartu (dipake di scroll)
+func transform_card(new_type: String, new_value) -> void: 
+	card_type = new_type
+	set_value(new_value)
+	
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.15)
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.15)

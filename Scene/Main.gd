@@ -6,8 +6,9 @@ extends Node2D
 @onready var game_won_panel = $CanvasLayer2/GameWonPanel
 @onready var submit_button = $HBoxContainer/SubmitButton   
 @onready var craft_button = $HBoxContainer/CraftButton    
-@onready var phase_presentation_ui = $Panel 
+@onready var phase_presentation_ui = $PhasePresentation/Panel
 
+# siapin yang dibutuhin game (kebanyakan UI)
 func _ready() -> void:
 	var orderrule = $OrderManager 
 	if orderrule:
@@ -32,7 +33,7 @@ func display_icon_variant(variant_data: Variant):
 	
 	icon_baru.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	icon_baru.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	icon_baru.custom_minimum_size = Vector2(60, 60)
+	icon_baru.custom_minimum_size = Vector2(80, 80)
 	
 	icon_baru.tooltip_text = variant_data.nama_variant + "\n" + variant_data.deskripsi
 	

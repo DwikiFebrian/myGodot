@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://dx7qt4xy4p4tr" path="res://Scene/DeckViewer.tscn" id="16_gclda"]
 [ext_resource type="PackedScene" uid="uid://bg37elq5xxxfq" path="res://Scene/CardUI.tscn" id="17_kp1vv"]
 [ext_resource type="Script" uid="uid://cggenxjttdk1e" path="res://Scene/ScrollUseButton.gd" id="18_4w0o7"]
-[ext_resource type="Script" uid="uid://biadyd55bifpp" path="res://Scene/ScrollInventoryUI.gd" id="18_hmjy8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp1vv"]
 bg_color = Color(0.9843137, 0.3764706, 0.14117648, 1)
@@ -29,15 +28,19 @@ bg_color = Color(0.9843194, 0.37508634, 0.14025807, 1)
 [node name="Main" type="Node2D" unique_id=994226464]
 script = ExtResource("1_h3nmf")
 
+[node name="CanvasLayer2" parent="." unique_id=1800509081 instance=ExtResource("3_i0sg4")]
+
 [node name="CardUI" parent="." unique_id=2019262227 instance=ExtResource("17_kp1vv")]
 anchors_preset = 8
 offset_right = 120.0
 offset_bottom = 160.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799141781]
-position = Vector2(959, 540.5)
-scale = Vector2(6.0000005, 5.994445)
+position = Vector2(959, 539.5)
+scale = Vector2(6.0000005, 5.9833336)
 texture = ExtResource("3_sc4dx")
+
+[node name="CanvasLayer3" parent="." unique_id=784327350 instance=ExtResource("16_gclda")]
 
 [node name="RewardItem" parent="." unique_id=428650801 instance=ExtResource("12_i0sg4")]
 
@@ -69,68 +72,6 @@ script = ExtResource("5_aan6j")
 [node name="InputManager" type="Node2D" parent="." unique_id=1718517236]
 script = ExtResource("6_aan6j")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=2085488641]
-offset_left = 1665.0
-offset_top = 46.0
-offset_right = 1907.0
-offset_bottom = 591.0
-color = Color(0, 0, 0, 0.19607843)
-
-[node name="ActiveVariantContainer" type="GridContainer" parent="." unique_id=32943202]
-custom_minimum_size = Vector2(180, 440)
-layout_direction = 2
-offset_left = 1665.0
-offset_top = 59.0
-offset_right = 1853.0
-offset_bottom = 953.0
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
-columns = 3
-
-[node name="ScrollInventoryUI" type="CanvasLayer" parent="." unique_id=211154721]
-script = ExtResource("18_hmjy8")
-
-[node name="ColorRect" type="ColorRect" parent="ScrollInventoryUI" unique_id=287744150]
-offset_left = 1132.0
-offset_top = 46.0
-offset_right = 1652.0
-offset_bottom = 166.0
-color = Color(0, 0, 0, 0.3254902)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollInventoryUI" unique_id=1076454930]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -788.0
-offset_top = 46.0
-offset_right = -268.0
-offset_bottom = 166.0
-grow_horizontal = 0
-alignment = 1
-
-[node name="SlotLabel" type="Label" parent="ScrollInventoryUI" unique_id=1757866663]
-offset_left = 1124.0
-offset_top = 140.0
-offset_right = 1644.0
-offset_bottom = 163.0
-theme_override_colors/font_color = Color(1, 1, 1, 0.43137255)
-theme_override_fonts/font = ExtResource("9_6a8me")
-theme_override_font_sizes/font_size = 16
-text = "test"
-horizontal_alignment = 2
-
-[node name="Scroll" type="Button" parent="ScrollInventoryUI" unique_id=2144716473]
-custom_minimum_size = Vector2(100, 140)
-offset_left = 1744.0
-offset_top = 629.0
-offset_right = 1867.0
-offset_bottom = 769.0
-text = "Use"
-script = ExtResource("18_4w0o7")
-
-[node name="CanvasLayer3" parent="." unique_id=784327350 instance=ExtResource("16_gclda")]
-layer = 30
-
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=196672606]
 offset_top = 680.0
 offset_right = 1919.0
@@ -158,9 +99,9 @@ icon_alignment = 1
 
 [node name="ScorePreview" type="Label" parent="." unique_id=952184912]
 offset_left = 756.0
-offset_top = 240.0
+offset_top = 137.0
 offset_right = 1178.0
-offset_bottom = 320.0
+offset_bottom = 217.0
 theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
 theme_override_fonts/font = ExtResource("9_6a8me")
 theme_override_font_sizes/font_size = 32
@@ -201,17 +142,6 @@ theme_override_font_sizes/font_size = 32
 [node name="OrderManager" type="Node" parent="." unique_id=1503627847]
 script = ExtResource("10_yg4ot")
 
-[node name="PhasePresentation" type="CanvasLayer" parent="." unique_id=230508222]
-layer = 20
-
-[node name="Panel" parent="PhasePresentation" unique_id=900900340 instance=ExtResource("2_sc4dx")]
-anchors_preset = 15
-anchor_left = 0.0
-offset_left = 0.0
-grow_horizontal = 2
-
-[node name="CanvasLayer2" parent="." unique_id=1800509081 instance=ExtResource("3_i0sg4")]
-
 [node name="PhaseLabel" type="Label" parent="." unique_id=1911745941]
 custom_minimum_size = Vector2(152, 72)
 offset_left = 81.0
@@ -220,6 +150,32 @@ offset_right = 608.0
 offset_bottom = 133.0
 theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
 theme_override_fonts/font = ExtResource("9_6a8me")
+
+[node name="ActiveVariantContainer" type="GridContainer" parent="." unique_id=32943202]
+custom_minimum_size = Vector2(180, 440)
+layout_direction = 2
+offset_left = 1697.0
+offset_top = 59.0
+offset_right = 1877.0
+offset_bottom = 953.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="Panel" parent="." unique_id=900900340 instance=ExtResource("2_sc4dx")]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+
+[node name="TextureButton" type="Button" parent="." unique_id=2144716473]
+custom_minimum_size = Vector2(120, 140)
+offset_left = 1744.0
+offset_top = 629.0
+offset_right = 1864.0
+offset_bottom = 769.0
+text = "Use"
+script = ExtResource("18_4w0o7")
 
 [connection signal="pressed" from="HBoxContainer/CraftButton" to="." method="_on_craft_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]

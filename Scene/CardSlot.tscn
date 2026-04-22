@@ -1,24 +1,33 @@
 [gd_scene format=3 uid="uid://onk5goosgqcc"]
 
 [ext_resource type="Script" uid="uid://3pblai6b462r" path="res://Scripts/CardSlot.gd" id="1_cobsd"]
-[ext_resource type="Texture2D" uid="uid://dqu0oggfqvktf" path="res://grafik/board1.png" id="2_cobsd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt86f"]
-size = Vector2(1453.5, 333)
+size = Vector2(1405.75, 333)
 
 [node name="CardSlot" type="Node2D" unique_id=1685086273]
 script = ExtResource("1_cobsd")
 
-[node name="ColorRect" type="Sprite2D" parent="." unique_id=1068616967]
-visible = false
-position = Vector2(-2.5000305, -8.583069e-06)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=463183508]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -731.0
+offset_top = -167.00002
+offset_right = -614.8763
+offset_bottom = -107.53572
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(12.125, 5.6000004)
-texture = ExtResource("2_cobsd")
+color = Color(0, 0, 0, 0.2)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1424080206]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=303453752]
-position = Vector2(-1, 0)
+position = Vector2(-24.875, 0)
 shape = SubResource("RectangleShape2D_mt86f")

@@ -85,10 +85,11 @@ func add_card_to_hand(card):
 		player_hand.sort_custom(sort_cards_by_type)
 		update_hand_position()
 	else:
-		# Ambil rotasi aslinya, kalau null set ke 0
+		# ambil rotasi aslinya, kalau null set ke 0
 		var rot = card.get_meta("starting_rotation") if card.has_meta("starting_rotation") else 0.0
 		animate_card_to_position(card, card.starting_position, rot, SPEED_DRAW)
 
+# ambil kartu setelah craft
 func add_card_to_hand_for_craft(card):
 	if card not in player_hand:
 		# kalau kartu baru (hasil craft / draw)

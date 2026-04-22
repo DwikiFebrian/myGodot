@@ -3,7 +3,7 @@ extends Node2D
 const CARD_WIDTH = 150 # Jarak antar kartu saat dijejerkan
 const BOARD_Y_POSITION = 500
 
-# Array yang langsung menyimpan kartu yang di-drop
+# array yang langsung menyimpan kartu yang di-drop
 var placed_cards = [] 
 var center_screen_x
 
@@ -18,8 +18,8 @@ var submit_used = 0
 @onready var preview_label = $"../ScorePreview"
 @onready var total_label = $"../TotalScore"
 @onready var phase_label = $"../PhaseLabel"
-@onready var submit_label = $"../SubmitCount"
-@onready var craft_label = $"../CraftCount"
+@onready var submit_label = $"../VBoxContainer/SubmitCount"
+@onready var craft_label = $"../VBoxContainer/CraftCount"
 
 func _ready() -> void:
 	center_screen_x = get_viewport().size.x / 2
@@ -127,6 +127,7 @@ func submit_placed_cards():
 	submit_used += 1
 	var om = $"../OrderManager"
 	var old_phase = om.current_phase
+	var phase_won_in_this_turn = false
 	
 	if result != null:
 		var outcome = om.process_result(cards, result)
@@ -137,6 +138,8 @@ func submit_placed_cards():
 			print("Penalty:", outcome.value)
 
 		update_total_score()
+		if old_phase != om.current_phase:
+			phase_won_in_this_turn = true
 	
 	update_all_ui()
 	
@@ -146,9 +149,11 @@ func submit_placed_cards():
 	
 	if submit_used >= max_submit:
 
-		if om.total_score < om.get_current_phase()["target"]:
-			print("GAME OVER: Hand Habis & Target Tidak Tercapai")
-			om.emit_signal("game_over")
+		if submit_used >= max_submit:
+			if not phase_won_in_this_turn: 
+				if om.total_score < om.get_current_phase()["target"]:
+					print("GAME OVER: Hand Habis & Target Tidak Tercapai")
+					om.emit_signal("game_over")
 
 # fungsi kalkulasi ekspresi matematika di board
 func calculate_expression(cards):

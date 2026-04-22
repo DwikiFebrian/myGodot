@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cbgb7evd1e4w"]
+
+[ext_resource type="Script" uid="uid://o5vcm0im4wym" path="res://Scene/ScrollHUDButton.gd" id="1_scs6o"]
+
+[node name="ScrollHUDButton" type="Button" unique_id=205157166]
+custom_minimum_size = Vector2(120, 140)
+offset_right = 120.0
+offset_bottom = 120.0
+flat = true
+expand_icon = true
+script = ExtResource("1_scs6o")

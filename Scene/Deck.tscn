@@ -8,7 +8,7 @@ size = Vector2(64, 95)
 [node name="Deck" type="Node2D" unique_id=882537184]
 light_mask = 5
 visibility_layer = 5
-position = Vector2(1800, 150)
+position = Vector2(1800, 940)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606489251]
 texture = ExtResource("1_leq5y")

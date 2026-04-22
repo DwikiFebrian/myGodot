@@ -91,6 +91,7 @@ func add_num_to_discard(value):
 func add_ops_to_discard(value):
 	operator_discard.append(value)
 
+# reset deck kalau level berubah
 func reset_deck_for_new_phase():
 	number_discard.clear()
 	operator_discard.clear()

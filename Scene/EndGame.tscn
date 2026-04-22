@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bk8oy3iouxvmr" path="res://grafik/PressStart2P-Regular.ttf" id="1_oyxgg"]
 
 [node name="CanvasLayer2" type="CanvasLayer" unique_id=1800509081]
+layer = 50
 
 [node name="GameWonPanel" type="PanelContainer" parent="." unique_id=1497268524]
 offset_right = 1921.0

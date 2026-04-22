@@ -6,16 +6,39 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30q5g"]
 bg_color = Color(0.19793722, 0.19793725, 0.19793713, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j78gs"]
+bg_color = Color(0.42745098, 0, 0.10980392, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.42745098, 0, 0.10980392, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpddo"]
 bg_color = Color(0.18039216, 0.3529412, 0.27058825, 1)
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 1
 shadow_color = Color(0.12156863, 0.22745098, 0.18039216, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdp2b"]
 bg_color = Color(0.16470589, 0.24705882, 0.37254903, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+corner_detail = 1
 shadow_color = Color(0.101960786, 0.15294118, 0.22745098, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_niq77"]
 bg_color = Color(0.3529412, 0.18039216, 0.18039216, 1)
+corner_radius_top_left = 10000
+corner_radius_top_right = 10000
+corner_radius_bottom_right = 10000
+corner_radius_bottom_left = 10000
+corner_detail = 1
 shadow_color = Color(0.22745098, 0.12156863, 0.12156863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsgif"]
@@ -37,55 +60,65 @@ bg_color = Color(0.12156863, 0.22745098, 0.18039216, 1)
 bg_color = Color(0.24705882, 0.47843137, 0.37254903, 1)
 
 [node name="Panel" type="Panel" unique_id=900900340]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -951.0
-offset_top = -542.0
-offset_right = 957.0
-offset_bottom = 534.0
-grow_horizontal = 2
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1917.0
+grow_horizontal = 0
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_30q5g")
 script = ExtResource("1_30q5g")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=703065720]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18039216, 0.3529412, 0.27058825, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=199654911]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -715.5
-offset_top = -281.0
-offset_right = 715.5
-offset_bottom = 281.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=169212518]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=528912696]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxFlat_j78gs")
 text = "CHOOSE YOUR NEXT PHASE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1639988165]
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1317427668]
+custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
-[node name="PhaseBox1" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1765769729]
-custom_minimum_size = Vector2(200, 150)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1639988165]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="PhaseBox1" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1765769729]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bpddo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1" unique_id=1052995624]
@@ -97,29 +130,27 @@ alignment = 1
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1/VBoxContainer" unique_id=1479098052]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1/VBoxContainer" unique_id=109280425]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox1/VBoxContainer" unique_id=1411422959]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PhaseBox2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=731734971]
-custom_minimum_size = Vector2(200, 150)
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 5
 theme_override_styles/panel = SubResource("StyleBoxFlat_vdp2b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2" unique_id=2017300217]
@@ -130,29 +161,27 @@ alignment = 1
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2/VBoxContainer" unique_id=117041392]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2/VBoxContainer" unique_id=2114889825]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox2/VBoxContainer" unique_id=52454703]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PhaseBox3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2102232608]
-custom_minimum_size = Vector2(200, 150)
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 5
 theme_override_styles/panel = SubResource("StyleBoxFlat_niq77")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PhaseBox3" unique_id=929626751]
@@ -164,7 +193,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.92156863, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -172,7 +201,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92941177, 0.92156863, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -180,7 +209,7 @@ vertical_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9764706, 0.90588236, 0.5176471, 1)
 theme_override_fonts/font = ExtResource("2_rsgif")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -189,9 +218,12 @@ custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1365668775]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_rsgif")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_rsgif")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fsecl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u85sj")

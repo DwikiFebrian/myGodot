@@ -9,6 +9,10 @@ var is_hovereng_on_card
 var hovered_card = null
 var interaction_enabled = false
 
+var active_scroll: Scroll = null
+var is_targeting_scroll: bool = false
+signal scroll_used(success: bool)
+
 # referensi ke node lain
 var player_hand_reference
 var card_placement_reference
@@ -25,7 +29,7 @@ func _ready() -> void:
 # fungsi dijalankan selama run (drag kartu)
 func _process(delta: float) -> void:
 	if not interaction_enabled:
-		# Bersihkan efek hover kalau kebetulan ada yang nyangkut
+		# bersihkan efek hover kalau kebetulan ada yang nyangkut
 		if hovered_card != null and is_instance_valid(hovered_card):
 			highlight_card(hovered_card, false)
 			hovered_card = null
@@ -45,19 +49,48 @@ func _process(delta: float) -> void:
 				highlight_card(top_card, true)
 			
 			hovered_card = top_card
-		
+
+# targeting waktu scroll
+func activate_scroll_targeting(scroll_data: Scroll):
+	active_scroll = scroll_data
+	is_targeting_scroll = true
+	if hovered_card != null and is_instance_valid(hovered_card):
+		highlight_card(hovered_card, false)
+	print("Mode Scroll Aktif! Klik kartu target.")
+
+# lepas targeting
+func cancel_scroll_targeting():
+	active_scroll = null
+	is_targeting_scroll = false
+	print("Mode Scroll dibatalkan.")
+
 func _input(event):
 	if not interaction_enabled:
 		return
 
-	# jika kartu diklik dan ditahan pakai klik kiri, dia bakal kedrag
+	# klik kiri
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			var card = raycast_check_for_card()
 			if card:
+				# kalau ada scroll active
+				if is_targeting_scroll and active_scroll != null:
+					
+					var success = active_scroll.apply_to_card(card)
+					
+					emit_signal("scroll_used", success)
+					cancel_scroll_targeting()
+					
+					return 
 				start_drag(card)
 		else:
+			# saat tombol kiri dilepas
 			stop_drag()
+	# klik kanan buat batalin pemakaian
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.pressed and is_targeting_scroll:
+			emit_signal("scroll_used", false)
+			cancel_scroll_targeting()
 
 # fungsi buat konek signal efek hovered
 func connect_card_signals(card):
