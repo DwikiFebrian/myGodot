@@ -5,6 +5,7 @@ func _init():
 	nama_variant = "Evens Prime"
 	deskripsi = "+5 Base Score untuk tiap angka genap"
 	icon = preload("res://grafik/evenprime.png")
+	price = 8
 
 func apply_effect(ctx):
 	for card in ctx.cards:

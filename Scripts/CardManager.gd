@@ -137,6 +137,8 @@ func highlight_card(card, hovered):
 			if card.has_meta("starting_position"):
 				var hover_pos = card.get_meta("starting_position") + Vector2(0, -30)
 				tween.tween_property(card, "position", hover_pos, anim_speed)
+				#card.tooltip_text = "Card Type: " + str(card.card_type) + "\n" 
+				##//+ "Card value: " + card.value
 				
 	else:
 		card.z_index = 1 
@@ -153,7 +155,7 @@ func on_left_click_released():
 	if card_being_dragged:
 		stop_drag()
 
-# fungsi untuk fetek kartu dan ambil kartunya
+# fungsi untuk detek kartu dan ambil kartunya
 func raycast_check_for_card():
 	var space_state = get_world_2d().direct_space_state
 	var parameters = PhysicsPointQueryParameters2D.new()

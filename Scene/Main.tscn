@@ -20,6 +20,9 @@
 [ext_resource type="Script" uid="uid://cggenxjttdk1e" path="res://Scene/ScrollUseButton.gd" id="18_4w0o7"]
 [ext_resource type="Script" uid="uid://biadyd55bifpp" path="res://Scene/ScrollInventoryUI.gd" id="18_hmjy8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmjy8"]
+bg_color = Color(0.9843137, 0.3764706, 0.14117648, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kp1vv"]
 bg_color = Color(0.9843137, 0.3764706, 0.14117648, 1)
 
@@ -38,6 +41,11 @@ offset_bottom = 160.0
 position = Vector2(959, 540.5)
 scale = Vector2(6.0000005, 5.994445)
 texture = ExtResource("3_sc4dx")
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1121020867]
+offset_right = 1920.0
+offset_bottom = 84.0
+color = Color(0.13174233, 0.13174233, 0.13174233, 1)
 
 [node name="RewardItem" parent="." unique_id=428650801 instance=ExtResource("12_i0sg4")]
 
@@ -69,20 +77,20 @@ script = ExtResource("5_aan6j")
 [node name="InputManager" type="Node2D" parent="." unique_id=1718517236]
 script = ExtResource("6_aan6j")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=2085488641]
+[node name="BG sementara Active Variant" type="ColorRect" parent="." unique_id=2085488641]
 offset_left = 1665.0
-offset_top = 46.0
+offset_top = 84.0
 offset_right = 1907.0
-offset_bottom = 591.0
+offset_bottom = 629.0
 color = Color(0, 0, 0, 0.19607843)
 
 [node name="ActiveVariantContainer" type="GridContainer" parent="." unique_id=32943202]
 custom_minimum_size = Vector2(180, 440)
 layout_direction = 2
 offset_left = 1665.0
-offset_top = 59.0
+offset_top = 92.0
 offset_right = 1853.0
-offset_bottom = 953.0
+offset_bottom = 986.0
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 3
@@ -92,9 +100,9 @@ script = ExtResource("18_hmjy8")
 
 [node name="ColorRect" type="ColorRect" parent="ScrollInventoryUI" unique_id=287744150]
 offset_left = 1132.0
-offset_top = 46.0
+offset_top = 84.0
 offset_right = 1652.0
-offset_bottom = 166.0
+offset_bottom = 204.0
 color = Color(0, 0, 0, 0.3254902)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollInventoryUI" unique_id=1076454930]
@@ -102,17 +110,17 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -788.0
-offset_top = 46.0
+offset_top = 84.0
 offset_right = -268.0
-offset_bottom = 166.0
+offset_bottom = 204.0
 grow_horizontal = 0
 alignment = 1
 
 [node name="SlotLabel" type="Label" parent="ScrollInventoryUI" unique_id=1757866663]
 offset_left = 1124.0
-offset_top = 140.0
+offset_top = 176.0
 offset_right = 1644.0
-offset_bottom = 163.0
+offset_bottom = 199.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.43137255)
 theme_override_fonts/font = ExtResource("9_6a8me")
 theme_override_font_sizes/font_size = 16
@@ -122,9 +130,9 @@ horizontal_alignment = 2
 [node name="Scroll" type="Button" parent="ScrollInventoryUI" unique_id=2144716473]
 custom_minimum_size = Vector2(100, 140)
 offset_left = 1744.0
-offset_top = 629.0
+offset_top = 660.0
 offset_right = 1867.0
-offset_bottom = 769.0
+offset_bottom = 800.0
 text = "Use"
 script = ExtResource("18_4w0o7")
 
@@ -165,6 +173,17 @@ theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
 theme_override_fonts/font = ExtResource("9_6a8me")
 theme_override_font_sizes/font_size = 32
 
+[node name="MoneyCount" type="Label" parent="." unique_id=1197234021]
+custom_minimum_size = Vector2(104, 44)
+offset_left = 440.0
+offset_top = 20.0
+offset_right = 648.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("9_6a8me")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hmjy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=324778625]
 offset_left = 80.0
 offset_top = 800.0
@@ -191,9 +210,9 @@ vertical_alignment = 1
 
 [node name="TotalScore" type="Label" parent="." unique_id=1716543009]
 offset_left = 59.0
-offset_top = 190.0
+offset_top = 240.0
 offset_right = 219.0
-offset_bottom = 270.0
+offset_bottom = 320.0
 theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
 theme_override_fonts/font = ExtResource("9_6a8me")
 theme_override_font_sizes/font_size = 32
@@ -215,9 +234,9 @@ grow_horizontal = 2
 [node name="PhaseLabel" type="Label" parent="." unique_id=1911745941]
 custom_minimum_size = Vector2(152, 72)
 offset_left = 81.0
-offset_top = 61.0
+offset_top = 100.0
 offset_right = 608.0
-offset_bottom = 133.0
+offset_bottom = 172.0
 theme_override_colors/font_color = Color(0.2901961, 0.6392157, 1, 1)
 theme_override_fonts/font = ExtResource("9_6a8me")
 

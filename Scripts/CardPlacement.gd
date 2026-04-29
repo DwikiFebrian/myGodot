@@ -15,11 +15,15 @@ var craft_used = 0
 var max_submit = 3
 var submit_used = 0
 
+# uang
+var money = 0
+
 @onready var preview_label = $"../ScorePreview"
 @onready var total_label = $"../TotalScore"
 @onready var phase_label = $"../PhaseLabel"
 @onready var submit_label = $"../VBoxContainer/SubmitCount"
 @onready var craft_label = $"../VBoxContainer/CraftCount"
+@onready var money_label = $"../MoneyCount"
 
 func _ready() -> void:
 	center_screen_x = get_viewport().size.x / 2
@@ -30,6 +34,7 @@ func _ready() -> void:
 	update_phase_ui()
 	update_submit_ui()
 	update_craft_ui()
+	update_money_ui()
 
 # fungsi untuk nambahin kartu di board
 func add_card_to_board(card):
@@ -191,7 +196,7 @@ func calculate_expression(cards):
 	i = 1
 	
 	while i < tokens.size():
-		var op = str(tokens[i])
+		var op = tokens[i]
 		var val = tokens[i+1]
 		
 		if op == "+":
@@ -314,6 +319,14 @@ func update_submit_ui():
 # info craft sisa
 func update_craft_ui():
 	craft_label.text = "Craft: " + str(max_craft - craft_used)
+	
+func update_money_ui():
+	var mymoney = $"../OrderManager".money
+	money_label.text = "Money: " + str(mymoney)
+
+func player_money():
+	var earned_money = 3*(max_submit - submit_used) + 3*(max_craft - craft_used)
+	$"../OrderManager".add_money(earned_money)
 
 func _on_phase_changed():
 	submit_used = 0
@@ -332,3 +345,4 @@ func update_all_ui():
 	update_phase_ui()
 	update_submit_ui()
 	update_craft_ui()
+	update_money_ui()

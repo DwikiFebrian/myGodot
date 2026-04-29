@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Scroll" format=3 uid="uid://bdmr84cso2msj"]
+
+[ext_resource type="Texture2D" uid="uid://qay7vewxabhf" path="res://grafik/scroll7.png" id="1_3ay3c"]
+[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scripts/Scroll.gd" id="1_vgegm"]
+
+[resource]
+script = ExtResource("1_vgegm")
+scroll_name = "Scroll 7"
+description = "Mengubah 1 kartu menjadi angka 7."
+icon = ExtResource("1_3ay3c")
+price = 7
+target_value = 7
+metadata/_custom_type_script = "uid://da1n6l7bv1ear"

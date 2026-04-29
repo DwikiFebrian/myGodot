@@ -6,7 +6,7 @@ const CARD_WIDTH = 148
 const HAND_Y_POSITION = 900
 const HAND_SPACING = 140
 const CURVE_FACTOR = 2.0 
-const ROTATION_FACTOR = 3.0 #
+const ROTATION_FACTOR = 3.0 
 
 var player_hand = []
 var center_screen_x

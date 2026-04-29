@@ -5,6 +5,7 @@ func _init():
 	nama_variant = "Five for Five"
 	deskripsi = "+5 Score for using 5"
 	icon = preload("res://grafik/5for5.png")
+	price = 7
 
 func apply_effect(ctx):
 	for card in ctx.cards:

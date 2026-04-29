@@ -4,6 +4,9 @@ var total_score = 0
 var current_order = 0
 var current_phase = 0
 
+var money = 0
+signal money_changed(new_amount)
+
 var variants = []
 var inventory_scroll: Array[Scroll] = []
 
@@ -82,6 +85,10 @@ func next_phase():
 	
 	is_transitioning = true
 	
+	var board = get_node("../CardPlacement")
+	if board.has_method("player_money"):
+		board.player_money()
+	
 	current_phase += 1
 	
 	if current_phase >= ORDERS[current_order]["phase"].size():
@@ -108,6 +115,20 @@ func reset_run():
 	
 	# emit signal supaya UI score dan phase terupdate ke awal
 	emit_signal("phase_changed") 
+
+# fungsi numbah duit player
+func add_money(amount: int):
+	money += amount
+	emit_signal("money_changed", money)
+	print("Uang bertambah! Total sekarang: ", money)
+
+func spend_money(amount: int) -> bool:
+	if money >= amount:
+		money -= amount
+		emit_signal("money_changed", money)
+		return true
+	
+	return false
 
 # nambah varint
 func add_variant(new_variant: Variant):

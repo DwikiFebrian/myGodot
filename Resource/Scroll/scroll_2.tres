@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Scroll" format=3 uid="uid://bvls0svhj70cy"]
 
-[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scroll.gd" id="1_eewcc"]
+[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scripts/Scroll.gd" id="1_eewcc"]
 [ext_resource type="Texture2D" uid="uid://di4336fv7wnii" path="res://grafik/scroll2.png" id="1_hm3xy"]
 
 [resource]
 script = ExtResource("1_eewcc")
+scroll_name = "Scroll 2"
 description = "Mengubah 1 kartu menjadi angka 2."
 icon = ExtResource("1_hm3xy")
+price = 6
 target_value = 2
 metadata/_custom_type_script = "uid://da1n6l7bv1ear"
