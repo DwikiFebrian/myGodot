@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Scroll" format=3 uid="uid://bdxnqj4sl354t"]
+
+[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scripts/Scroll.gd" id="1_j5ucg"]
+[ext_resource type="Texture2D" uid="uid://brqd5rmi5cpdp" path="res://grafik/scroll-.png" id="1_siat2"]
+
+[resource]
+script = ExtResource("1_j5ucg")
+scroll_name = "Scroll Minus"
+description = "Mengubah 1 kartu menjadi operator minus (-)"
+icon = ExtResource("1_siat2")
+price = 6
+target_type = "operator"
+target_value = "-"
+metadata/_custom_type_script = "uid://da1n6l7bv1ear"

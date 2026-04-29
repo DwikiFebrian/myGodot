@@ -12,12 +12,17 @@ var variant_pool = [
 var scroll_pool = [
 	preload("res://Resource/Scroll/scroll_3.tres"), 
 	preload("res://Resource/Scroll/scroll_plus.tres"),
-	preload("res://Resource/Scroll/scroll_2.tres")
+	preload("res://Resource/Scroll/scroll_2.tres"),
+	preload("res://Resource/Scroll/scroll_5.tres"),
+	preload("res://Resource/Scroll/scroll_7.tres"),
+	preload("res://Resource/Scroll/scroll_div.tres"),
+	preload("res://Resource/Scroll/scroll_minus.tres"),
+	preload("res://Resource/Scroll/scroll_multiply.tres")
 ]
 
 # mau munculin berapa reward (harus ubah juga di hbox kayaknya)
-var num_base_rewards = 3
-@onready var container = $HBoxContainer 
+var num_base_rewards = 6
+@onready var container = $HBoxContainer #namanya doang, aslinya GridBox
 var is_processing_selection = false
 
 func _ready():
@@ -26,6 +31,8 @@ func _ready():
 
 # nampilin dari reward
 func show_reward_options():
+	await get_tree().process_frame
+	
 	is_processing_selection = false
 	self.show()
 	for child in container.get_children(): child.queue_free()
@@ -66,16 +73,24 @@ func show_reward_options():
 		reward_node.setup(item_data)
 		reward_node.connect("selected", _on_item_selected, CONNECT_ONE_SHOT)
 		
-		await get_tree().create_timer(i * 0.1).timeout
 		container.add_child(reward_node)
 		
-		reward_node.scale = Vector2(0.8, 0.8)
-		reward_node.modulate.a = 0.0
-		reward_node.position.y += 30 
+		# cek apakah bisa beli
+		var current_money = get_node("../OrderManager").money
+		reward_node.check_affordability(current_money)
+		
+		var visual = reward_node.get_node("VisualWrapper")
+		
+		visual.scale = Vector2(0.8, 0.8)
+		visual.modulate.a = 0.0
+		visual.position.y += 30 
+		
 		var tween = create_tween().set_parallel(true)
-		tween.tween_property(reward_node, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		tween.tween_property(reward_node, "modulate:a", 1.0, 0.25)
-		tween.tween_property(reward_node, "position:y", reward_node.position.y - 30, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		var delay_animasi = i * 0.1 
+		
+		tween.tween_property(visual, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).set_delay(delay_animasi)
+		tween.tween_property(visual, "modulate:a", 1.0, 0.25).set_delay(delay_animasi)
+		tween.tween_property(visual, "position:y", visual.position.y - 30, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_delay(delay_animasi)
 
 # fungsi sehabis milih reward, nanti dipisahin lokasinya
 func _on_item_selected(chosen_item):
@@ -83,6 +98,11 @@ func _on_item_selected(chosen_item):
 	is_processing_selection = true
 	
 	var rules = get_node("../OrderManager")
+	
+	var transaksi_berhasil = rules.spend_money(chosen_item.price)
+	
+	if not transaksi_berhasil:
+		return
 	
 	if "nama_variant" in chosen_item: 
 		rules.add_variant(chosen_item)
@@ -97,13 +117,15 @@ func _on_item_selected(chosen_item):
 			
 	for child in container.get_children():
 		var tween = create_tween().set_parallel(true)
+		var visual = child.get_node("VisualWrapper")
+		
 		if child == chosen_node:
-			tween.tween_property(child, "scale", Vector2(1.3, 1.3), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			tween.tween_property(child, "position:y", child.position.y - 50, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tween.tween_property(visual, "scale", Vector2(1.3, 1.3), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			tween.tween_property(visual, "position:y", visual.position.y - 50, 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		else:
-			tween.tween_property(child, "scale", Vector2(0.6, 0.6), 0.25)
-			tween.tween_property(child, "modulate:a", 0.0, 0.25)
-			tween.tween_property(child, "position:y", child.position.y + 80, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+			tween.tween_property(visual, "scale", Vector2(0.6, 0.6), 0.25)
+			tween.tween_property(visual, "modulate:a", 0.0, 0.25)
+			tween.tween_property(visual, "position:y", visual.position.y + 80, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 
 	await get_tree().create_timer(0.35).timeout
 	self.hide()

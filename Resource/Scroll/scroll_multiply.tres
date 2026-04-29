@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Scroll" format=3 uid="uid://dvqda307kwuvg"]
+
+[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scripts/Scroll.gd" id="1_b1qwm"]
+[ext_resource type="Texture2D" uid="uid://8ks28pma2pdt" path="res://grafik/scrollx.png" id="1_by237"]
+
+[resource]
+script = ExtResource("1_b1qwm")
+scroll_name = "Scroll Multiply"
+description = "Mengubah 1 kartu menjadi operator perkalian (*)"
+icon = ExtResource("1_by237")
+price = 7
+target_type = "operator"
+target_value = "*"
+metadata/_custom_type_script = "uid://da1n6l7bv1ear"

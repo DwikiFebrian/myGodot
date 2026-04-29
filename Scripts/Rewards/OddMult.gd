@@ -5,6 +5,7 @@ func _init():
 	nama_variant = "Odd Mult"
 	deskripsi = "+0.5 Mult for Odd Numbers"
 	icon = preload("res://grafik/oddmult.png")
+	price = 11
 
 func apply_effect(ctx):
 	for card in ctx.cards:

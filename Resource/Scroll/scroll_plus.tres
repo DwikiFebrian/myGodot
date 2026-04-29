@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Scroll" format=3 uid="uid://bj0wjcpf5i4db"]
 
-[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scroll.gd" id="1_n1fa7"]
+[ext_resource type="Script" uid="uid://da1n6l7bv1ear" path="res://Scripts/Scroll.gd" id="1_n1fa7"]
 [ext_resource type="Texture2D" uid="uid://bbvuubkkyto8q" path="res://grafik/scroll+.png" id="1_pi5qb"]
 
 [resource]
@@ -8,6 +8,7 @@ script = ExtResource("1_n1fa7")
 scroll_name = "Scroll Plus"
 description = "Mengubah 1 kartu menjadi operator tambah (+)"
 icon = ExtResource("1_pi5qb")
+price = 6
 target_type = "operator"
 target_value = "+"
 metadata/_custom_type_script = "uid://da1n6l7bv1ear"

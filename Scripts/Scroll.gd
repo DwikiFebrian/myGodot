@@ -4,6 +4,7 @@ class_name Scroll
 @export var scroll_name: String = "Base Scroll"
 @export var description: String = "Mengubah identitas kartu"
 @export var icon: Texture2D
+@export var price: int = 0
 
 @export_enum("number", "operator") var target_type: String = "number"
 @export var target_value: Variant 
