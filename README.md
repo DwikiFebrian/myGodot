@@ -16,6 +16,8 @@ Godot version: 4.x
 - Boss
 - Add more variants
 - Add mode scroll
+- Add card to shop
+- Add delete option card to shop
 - UI
 - Balancing
-- Money and Shop System
+- Reroll system
