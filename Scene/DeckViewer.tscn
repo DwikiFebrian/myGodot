@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dx7qt4xy4p4tr"]
+
+[ext_resource type="Script" uid="uid://d3ev8pwebk8ph" path="res://Scene/DeckViewer.gd" id="1_cools"]
+
+[node name="CanvasLayer3" type="CanvasLayer" unique_id=784327350]
+
+[node name="DeckViewer" type="Control" parent="." unique_id=691128932]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cools")
+
+[node name="Panel" type="Panel" parent="DeckViewer" unique_id=1718627996]
+custom_minimum_size = Vector2(900, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -840.0
+offset_top = -420.0
+offset_right = 840.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DeckViewer/Panel" unique_id=1558061403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_hint_mode = 2
+tile_scroll_hint = true
+
+[node name="GridContainer" type="GridContainer" parent="DeckViewer/Panel/ScrollContainer" unique_id=1385359183]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 7
+
+[node name="Button" type="Button" parent="DeckViewer/Panel" unique_id=287039083]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+text = "X"
+
+[connection signal="pressed" from="DeckViewer/Panel/Button" to="DeckViewer" method="_on_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bonmumqpy6l88"]
+
+[ext_resource type="Texture2D" uid="uid://s8q4ey4uk6rg" path="res://grafik/back.png" id="1_leq5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu2cg"]
+size = Vector2(64, 95)
+
+[node name="Deck" type="Node2D" unique_id=882537184]
+light_mask = 5
+visibility_layer = 5
+position = Vector2(1800, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606489251]
+texture = ExtResource("1_leq5y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1835422859]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=726874136]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xu2cg")
